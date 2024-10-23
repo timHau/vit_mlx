@@ -10,6 +10,8 @@ TODO
 
 ## Usage
 
+### Original ViT
+
 ```python
 import mlx.core as mx
 from vit_mlx import ViT
@@ -54,6 +56,29 @@ preds = v(img) # (1, 1000)
 - `emb_dropout`: float between `[0, 1]`, default `0`.
   Embedding dropout rate.
 - `pool`: string, either `cls` token pooling or `mean` pooling
+
+## Simple ViT
+
+In an [updated Version](https://arxiv.org/abs/2205.01580) the authors introduced a simplified version of the ViT.
+They used a fixed 2d sinusoidal positional encoding instead of learning the positional encoding. They also introduced global average pooling, removed the dropout, increased the batch sizes to 4096, and used of RandAugment and MixUp augmentations.
+
+```python
+import mlx.core as mx
+from vit_mlx import ViT
+
+v = ViT(
+    image_size=256,
+    patch_size=32,
+    num_classes=1000,
+    dim=1024,
+    depth=6,
+    heads=16,
+    mlp_dim=2048,
+)
+
+img = mx.random.normal((1, 3, 256, 256))
+preds = v(img) # (1, 1000)
+```
 
 ## Acknowledgment
 
