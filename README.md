@@ -4,10 +4,6 @@
 
 Implementation of [Vision Transformer](https://openreview.net/pdf?id=YicbFdNTTy) in [MLX](https://github.com/ml-explore/mlx). For further explanation and details on the ViT Architecture check out [Yannic Kilcher's](https://www.youtube.com/watch?v=TrdevFK_am4) video.
 
-## Install
-
-TODO
-
 ## Usage
 
 ### Original ViT
